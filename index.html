@@ -8,13 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="header">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-        <button class="login-button">Login</button>
+    <nav class="header">  
+        <div class="header-content">
+            <div class="left-section">
+                <img src="https://png.pngtree.com/png-vector/20220519/ourmid/pngtree-man-profile-person-silhouette-user-isolated-vector-illustration-png-image_4650635.png" class="profile-icon">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <button class="login-button">Login</button>
+        </div>
     </nav>
 
     <div class="container">
@@ -53,236 +58,228 @@
     <script src="script.js"></script>
 </body>
 </html>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        
-        .header {
-            display: flex;
-            justify-content: space-between;
-            padding: 16px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header ul li {
-            margin-right: 20px;
-        }
-        
-        .header ul li a {
-            color: #333;
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-        
-        .header ul li a:hover, .header ul li a:focus {
-            background-color: #ddd;
-        }
-        
-        .login-button {
-            background-color: #445555;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        
-      
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 80px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .background-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-        }
-        
-        .box {
-            background-color: #aab2b1;
-        }
-        
-        .top-left {
-            background-color: #73827a;
-        }
-        
-        .top-right {
-            background-color: #d6b085;
-        }
-        
-        .bottom-left {
-            background-color: #b29487;
-        }
-        
-        .bottom-right {
-            background-color: #dedede;
-        }
-        
-    
-        .login-container {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .login h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .login form div {
-            margin-bottom: 15px;
-        }
-        
-        .login label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .login input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .buttons button {
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            background-color: #333;
-            color: white;
-            border-radius: 4px;
-        }
-        
-        .buttons button:first-child {
-            background-color: #888;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-            font-size: 14px;
-            position: relative;
-            z-index: 2;
-        }
-    
-        @media (max-width: 600px) {
-            .container {
-                height: auto;
-                padding: 20px;
-                display: block;
-            }
-        
-            .background-pattern {
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-            }
-        
-            .background-pattern .box {
-                width: 100%;
-                height: 50vh;
-            }
-        
-            .login-container {
-                box-shadow: none;
-                padding: 20px;
-                background-color: white;
-                max-width: 90%;
-                margin: 20px auto;
-                border-radius: 8px;
-                position: relative;
-                z-index: 2;
-            }
-        
-            .header {
-                padding: 10px;
-            }
-        
-            .header ul {
-                display: none;
-            }
-        
-            .header .login-button {
-                margin: 0 auto;
-            }
-        
-            footer {
-                padding: 20px 0;
-                font-size: 12px;
-            }
-        }
-        
-    
-    </style>
-    <script>document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault(); 
-    
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-    
-        fetch('https://dummyjson.com/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                username: email,
-                password: password,
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert('Login successful!');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Login failed!');
-        });
-    });
-    
-    function cancelLogin() {
-        document.getElementById('email').value = '';
-        document.getElementById('password').value = '';
+
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover, .nav-links li a:focus {
+    background-color: #ddd;
+}
+
+.login-button {
+    background-color: #445555;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    position: relative;
+    overflow: hidden;
+}
+
+.background-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.box {
+    background-color: #aab2b1;
+}
+
+.top-left {
+    background-color: #73827a;
+}
+
+.top-right {
+    background-color: #d6b085;
+}
+
+.bottom-left {
+    background-color: #b29487;
+}
+
+.bottom-right {
+    background-color: #dedede;
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login form div {
+    margin-bottom: 15px;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login input {
+    width: 95%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+}
+
+.buttons button:first-child {
+    background-color: #888;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    
-    </script>
-</body>
-</html>
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .login-button {
+        display: none;
+    }
+}
+</style>
+
+<script>
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            username: email,
+            password: password,
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert('Login successful!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Login failed!');
+    });
+});
+
+function cancelLogin() {
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+}
+
+</script>
